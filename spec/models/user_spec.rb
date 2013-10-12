@@ -18,7 +18,7 @@ require 'spec_helper'
          User.reflect_on_association(:element).should be_nil
       end
 
-      it "has a vaild email and password" do
+      it "should be valid with a vaild email and password" do
         FactoryGirl.create(:user).should be_valid
       end
 
