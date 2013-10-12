@@ -6,27 +6,24 @@ class ElementsController < ApplicationController
 
   def create
     @element = Element.new(create_params)
-    redirect_to slide_path(@slide)
   end
 
   def new
-    @element = Element.new    
-  end
-
-  def show
-    @element = Element.find(params[:id])
-  end
-
-  def update
-    
+    @element = Element.new(element_type_id: params[:type_id], slide_id: session[:edit_slide_id])
+    if request.xhr?
+      @element.save!
+      render json: {element: @element, type: @element.element_type}
+    else
+      redirect_to slide_path(@slide)
+    end
   end
 
   def edit
-    
+
   end
 
   def destroy
-    
+
   end
 
 
