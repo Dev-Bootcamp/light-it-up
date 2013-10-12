@@ -15,6 +15,8 @@ LightItUp::Application.routes.draw do
 
   post 'cast' => 'slideshows#cast'
 
+  post 'elements/ajax/:id' => 'ajax#element_update'
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

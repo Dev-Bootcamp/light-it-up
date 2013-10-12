@@ -2,8 +2,10 @@ require 'spec_helper'
 
 describe ElementsController do
 
-  before do
+  before(:each) do
     @slide = Slide.create!(title: 'Slide 1', slideshow_id: 1, creator_id: 1, sort_order: 1)
+    @user = User.create!(email: 'user2@user2.com', password: 'password', password_confirmation: 'password')
+    controller.stub(:current_user).and_return(@user)
   end
 
   describe '#index' do
@@ -14,7 +16,7 @@ describe ElementsController do
     end
 
   end
-  
+
   describe '#create' do
 
     it 'should create a new element' do
@@ -30,10 +32,10 @@ describe ElementsController do
   end
 
   describe '#new' do
-    
+
     it 'should open a new element object' do
       element = Element.new
-      expect(element.class).to be Element      
+      expect(element.class).to be Element
     end
 
     it 'should not save an Element object' do
@@ -45,43 +47,32 @@ describe ElementsController do
   describe '#show' do
 
     before do
-      element = Element.create(content: 'Hello, world!', slide_id: 1, element_type_id: 1, size: 0, coordinates: 'xxx')
-      get 'show', :id => element.id
+
+      controller.stub(:current_user).and_return(@user)
+      @element = Element.create!(content: 'Hello, world!', slide_id: 1, element_type_id: 1, size: 0, coordinates: 'xxx')
+
     end
 
-    it 'should return an element' do
-      # (expect(assigns(:element)).to be_a(Element))
-      pending "This test sucks"
-    end
+    it "should show the element view" do
+      get :show, :id => @element.id
+
+      response.should render_template(:show)
+   end
 
   end
 
   describe '#edit' do
 
-    before do
-      @element = Element.create(content: 'Hello, world!', slide_id: 1, element_type_id: 1)
+    before(:each) do
+      @element = Element.create!(content: 'Hello, world!', slide_id: 1, element_type_id: 1)
     end
 
-    it 'should allow a user to edit an element' do
-      # get 'edit', id: Element.first.id
-      # expect(assigns(:element)).to be_an_instance_of(Element)
-      pending "Test for element editing"
+    it 'should render the edit page' do
+      get :edit, :id => @element.id
+
+      response.should render_template(:edit)
     end
 
-    it 'should throw error if trying to edit an element belonging to other user' do
-      pending "Test for editing element"
-    end
-
-    it 'should allow to edit a shared but not owned slideshow' do
-      pending "Test for editing element"
-    end
-
-  end
-
-  describe '#update' do
-  end
-  
-  describe '#destroy' do
   end
 
 end

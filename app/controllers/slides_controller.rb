@@ -23,9 +23,13 @@ class SlidesController < ApplicationController
 
   def edit
     @slide = Slide.find(params[:id])
-
-    render :edit
-
+    if @slide.creator_id == current_user.id
+      session[:edit_slide_id] = @slide.id
+      @slide
+      @element_types = ElementType.all
+    else
+      flash[:error] = "Permission Denied"
+    end
   end
 
   def show
