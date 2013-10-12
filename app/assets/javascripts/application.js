@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery.ui.all
+//= require jquery.editable.min.js
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
