@@ -10,7 +10,7 @@ class ElementsController < ApplicationController
   end
 
   def new
-    @element = Element.new    
+    @element = Element.new
   end
 
   def show
@@ -18,15 +18,16 @@ class ElementsController < ApplicationController
   end
 
   def update
-    
+
   end
 
   def edit
-    
+    render :edit
+
   end
 
   def destroy
-    
+
   end
 
 
