@@ -9,12 +9,20 @@
 <body>
 
 <%= render 'layouts/nav' %>
-<%# if flash[:notice] %>
-<!-- class="nav-error" -->
+<% if flash[:notice]%>
   <div id='nav-error' class='nav-error'>
  	  <%= flash[:notice] %>
   </div>
-<%# end %>
+<% end %>
+
+<!-- user model errors -->
+<% if @errors%> 
+  <div id='nav-error' class='nav-error'>
+    <%= @errors.full_messages.first %>
+  </div>
+<% end %>
+<!-- end user model errors -->
+
 <div class="grid-container">
 <%= yield %>
 </div>
