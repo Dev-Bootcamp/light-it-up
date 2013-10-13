@@ -90,15 +90,14 @@ function setup(){
   })
 
   if ($('#colorpicker').is('*')) {
-    $('#colorpicker').farbtastic('.slide',function(){
-      console.log("test")
+    $('#colorpicker').farbtastic('.slide', function(){
     });
   };
 
-  $('.slide').on('change', function(hsb, hex, rgb) {
-      save(this);
-    };
-  };
+  $('#edit-slide-color-picker').on('mouseup', function(){
+    bgColor = $('.slide').css('background-color');
+    console.log(bgColor);
+  });
 
 };
 
