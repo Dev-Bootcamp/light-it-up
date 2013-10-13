@@ -69,7 +69,7 @@
         1,
         null,
         1,
-        390,
+        387,
         null,
         null,
         1,
@@ -118,10 +118,6 @@
         null,
         null
       ],
-      "/Users/apprentice/Dropbox/DBC-Chicago/Fireflies/Scott/phase_3/light_it_up/app/controllers/slide_controller.rb": [
-        1,
-        null
-      ],
       "/Users/apprentice/Dropbox/DBC-Chicago/Fireflies/Scott/phase_3/light_it_up/app/controllers/slides_controller.rb": [
         1,
         null,
@@ -131,12 +127,10 @@
         null,
         1,
         1,
-        null,
         1,
         1,
         1,
         1,
-        null,
         null,
         0,
         null,
@@ -358,6 +352,7 @@
         null,
         1,
         1,
+        1,
         null,
         1,
         1,
@@ -425,7 +420,7 @@
         null
       ]
     },
-    "timestamp": 1381694159
+    "timestamp": 1381698978
   },
   "Cucumber Features": {
     "coverage": {
