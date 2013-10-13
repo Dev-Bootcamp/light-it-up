@@ -64,10 +64,8 @@ function setup(){
     }, 'json');
   })
 
-  // $('.draggable').on('change', function(e){
-  //   // console.log($(this).find('.editable').html());
-  //   save($(this))
-  // })
+
+  $('#colorpicker').farbtastic('.slide');
 
 };
 
