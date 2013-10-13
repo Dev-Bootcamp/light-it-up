@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
   $('#nav-error').hide();
-  $('#nav-error').slideDown(500).delay(4000).slideUp(500);
+  $('#nav-error').slideDown(700).delay(4500).slideUp(700);
   
 });
