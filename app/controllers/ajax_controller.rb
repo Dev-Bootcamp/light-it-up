@@ -4,9 +4,9 @@ class AjaxController < ApplicationController
     if request.xhr?
       @element = Element.find(params[:id])
       if @element.update(update_element_params)
-        render json: "update success"
+        render json: { status: "save_ok"}
       else
-        render json: "update failure"
+        render json: { status: "save_error"}
       end
     end
   end
