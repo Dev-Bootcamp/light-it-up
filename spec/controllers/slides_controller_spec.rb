@@ -10,6 +10,8 @@ describe SlidesController do
 
     @ss = @user.slideshows.first
 
+    controller.stub(:current_slideshow).and_return(@ss)
+
     5.times do
       @ss.slides << Slide.create(title: "test", creator_id: @user.id)
     end
@@ -38,9 +40,10 @@ describe SlidesController do
   end
 
   describe '#create' do
-    it "should allow a title as an argument" do
-      slide = @ss.slides.last
-      expect(slide.title).to eq("test")
+    it "should create a slide" do
+
+      expect { post 'create' , :slide => {"title" => "test",
+                                       "user_id" => "1" } }.to change(Slide, :count).by(1)
     end
   end
 
