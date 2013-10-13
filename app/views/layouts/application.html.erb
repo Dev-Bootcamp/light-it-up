@@ -9,9 +9,12 @@
 <body>
 
 <%= render 'layouts/nav' %>
-<% if flash[:notice] %>
-<div class="nav-error"><%= flash[:notice] %></div>
-<% end %>
+<%# if flash[:notice] %>
+<!-- class="nav-error" -->
+  <div id='nav-error' class='nav-error'>
+ 	  <%= flash[:notice] %>
+  </div>
+<%# end %>
 <%= yield %>
 
 </body>
