@@ -26,8 +26,8 @@ require 'spec_helper'
           FactoryGirl.build(:element, slide_id: nil).should_not be_valid
         end
 
-        it "every element needs a content" do
-          FactoryGirl.build(:element, content: nil).should_not be_valid
+        it "every element does not need content" do
+          FactoryGirl.build(:element, content: nil).should be_valid
         end
 
         it "every element to have element types in it" do
