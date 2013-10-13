@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.ui.all
 //= require jquery.editable.min.js
+//= require farbtastic.js
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
