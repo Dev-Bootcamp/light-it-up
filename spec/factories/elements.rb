@@ -4,7 +4,11 @@
       f.slide_id "1"
       f.element_type_id "1"
       f.content "This is the content"
-      f.size "really big"
-      f.coordinates "over here"
+      f.width "really big"
+      f.heigth "height"
+      f.top "top"
+      f.left "left"
+
     end
   end
+

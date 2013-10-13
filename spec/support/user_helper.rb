@@ -15,6 +15,12 @@ module UserHelper
     fill_in 'email', with: 'editemail@fake.com'
     click_button 'Save User'
   end
+
+  def sign_out
+    @user = User.find_by_email("ex@fake.com")
+    visit edit_user_path(@user)
+    click_link 'Log out'
+  end
 end
 
 

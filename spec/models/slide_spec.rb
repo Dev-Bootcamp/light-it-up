@@ -23,7 +23,7 @@ require 'spec_helper'
           Slide.reflect_on_association(:element_types).should be_nil
         end
 
-        it "has a creator and slideshow title and sorting order" do
+        it "should be valid with a creator and slideshow title and sorting order" do
           FactoryGirl.create(:slide).should be_valid
         end
 
