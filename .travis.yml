@@ -1,8 +1,12 @@
 language: ruby
 rvm:
   - 1.9.3
+
 env:
   - DB=postgresql
+
+secure: "VhVUc9jMlTrtaDnqZMxWksguTzyk9JGs+/gvXeikocGn5jGs2SQEgxAvF4jRA4a4km5Gk0Vrp6qrhflBwVLbBpcZjumGcrdwPuU6Op3lXplk/Kv+cz24ZgDfgRU2tFz8I+7TY3DkFy7HptaX/pJdhyuo80Xbf75clpIr8HB7dvs="
+
 script:
   - bundle exec rake spec
 before_script:
@@ -10,3 +14,4 @@ before_script:
   - bundle exec rake db:migrate
   - bundle exec rake db:test:prepare
 bundler_args: --binstubs=./bundler_stubs
+

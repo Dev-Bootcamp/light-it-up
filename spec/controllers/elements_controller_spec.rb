@@ -11,6 +11,7 @@ describe ElementsController do
   describe '#index' do
 
     it 'should access all elements' do
+      get 'index'
       elements = Element.all
       expect(elements).to eq Element.all
     end
@@ -20,13 +21,9 @@ describe ElementsController do
   describe '#create' do
 
     it 'should create a new element' do
-      element = Element.create!(content: 'Hello, world!', slide_id: 1, element_type_id: 1)
-      expect(element.class).to be Element
-    end
-
-    it 'should require a title, slidehow_id, user_id and a sort_order' do
-      element = Element.new(content: 'Not a slide')
-      expect{ element.save }.to_not change(Element, :count).by(1)
+      expect { post 'create' , :element => {"content" => "hello world",
+                                   "slide_id" => "1",
+                                   "element_type_id" => "1" } }.to change(Element, :count).by(1)
     end
 
   end
@@ -34,11 +31,13 @@ describe ElementsController do
   describe '#new' do
 
     it 'should open a new element object' do
+      get 'new'
       element = Element.new
       expect(element.class).to be Element
     end
 
     it 'should not save an Element object' do
+      get 'new'
       expect{ Element.new }.to_not change(Element, :count).by(1)
     end
 
