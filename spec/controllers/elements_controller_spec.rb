@@ -61,31 +61,6 @@ describe ElementsController do
 
   end
 
-  describe '#edit' do
 
-    before(:each) do
-      @element = Element.create!(content: 'Hello, world!', slide_id: 1, element_type_id: 1)
-    end
-
-    it 'should render the edit page' do
-      get :edit, :id => @element.id
-
-      response.should render_template(:edit)
-    end
-
-  end
-
-  describe '#update' do
-
-   it 'should update content' do
-      patch :update, id: @element.id, element: {:content => "test content"}
-
-      @element.reload.content.should eq "test content"
-    end
-
-  end
-
-  describe '#destroy' do
-  end
 
 end
