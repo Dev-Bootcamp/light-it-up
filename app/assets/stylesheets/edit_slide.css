@@ -99,4 +99,5 @@ a.button:hover {
   box-shadow: 0 0 10px black;
   padding: 5px;
   display: none;
+  z-index: 1;
 }

@@ -69,6 +69,19 @@ function setup(){
     }, 'json');
   })
 
+  $('.slide-settings').on('click', 'a', function(e){
+    e.preventDefault();
+    console.log("hey")
+    id = $(this).attr('href');
+    postition = $(this).position();
+    console.log(postition);
+    $(id).css(postition);
+    $(id).css({ top: '+=30px' });
+    $(id).toggle();
+  })
+
+
+
   if ($('#colorpicker').is('*')) {
     $('#colorpicker').farbtastic('.slide');
   };
