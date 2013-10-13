@@ -14,8 +14,12 @@
   <% else %>
   <div id="slide<%= index + 1 %>" class="hidden" style="width: <%= @slideshow.px_width %>px; height: <%= @slideshow.px_height %>px">
   <% end %>
+    <% slide.elements.each do |element| %>
+      <div class="slide-object draggable editable-area ui-draggable ui-resizable"   id="<%= element.id %>" style="position: absolute; top: <%= element.top %>   ; left: <%= element.left %>; width: <%= element.width %> ; height: <%= element.heigth %>;">
+        <div class="editable" data-edit-event="dblclick.textEditor"><%= element.content.html_safe %></div>
+        </div>
+    <% end %>
   </div>
-
 <% end %>
 </ul>
 

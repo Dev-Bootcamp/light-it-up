@@ -29,6 +29,7 @@ function editable(){
     }});
 };
 
+
 function save(slideElement){
   var width = $(slideElement).css('width');
   var heigth = $(slideElement).css('height');
@@ -40,6 +41,15 @@ function save(slideElement){
   var url = '/elements/ajax/' + id;
   $.post(url, {element: {id: id, width: width, heigth: heigth, top: top, left: left, content: content}}, function(response){
     console.log(response)
+  })
+};
+
+function saveSlide(slide) {
+  var backgroundColor = $(this).css('background-color');
+  var id = $(slide).attr('id');
+  var url = '/slides/' + id;
+  $.post(url, {slide: {background_color: backgroundColor}}, function(response) {
+
   })
 };
 
@@ -83,6 +93,12 @@ function setup(){
   if ($('#colorpicker').is('*')) {
     $('#colorpicker').farbtastic('.slide');
   };
+
+  $('.slide').on('change', function(hsb, hex, rgb) {
+      save(this);
+    };
+  };
+  
 
 };
 
