@@ -21,7 +21,6 @@ function draggable(){
 };
 
 function editable(){
-  $('.editable').editable();
     var $editArea = jQuery('.editable-area');
     $editArea.find('.editable')
       .editable({ callback: function(event){
@@ -81,11 +80,15 @@ function setup(){
   })
 
   if ($('#colorpicker').is('*')) {
-    $('#colorpicker').farbtastic('.slide');
+    $('#colorpicker').farbtastic('.slide',function(){
+      console.log("test")
+    });
   };
 
+  $('.slide').on('change',function(){
+    console.log(this)
+  });
 };
-
 
 $(document).ready(setup);
 $(document).on("page:load",setup);
