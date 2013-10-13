@@ -9,6 +9,19 @@ class ElementsController < ApplicationController
   end
 
   def new
+    @element = Element.new
+  end
+
+  def show
+    @element = Element.find(params[:id])
+  end
+
+  def update
+
+  end
+
+  def edit
+
     @element = Element.new(element_type_id: params[:type_id], slide_id: session[:edit_slide_id])
     if request.xhr?
       @element.save!
@@ -18,9 +31,7 @@ class ElementsController < ApplicationController
     end
   end
 
-  def edit
 
-  end
 
   def destroy
 

@@ -3,17 +3,17 @@ require 'spec_helper'
 describe SlidesController do
 
   before do
-    @user = User.create(email: 'user2@user2.com', password: 'password', password_confirmation: 'password')
+    @user = User.create!(email: 'user2@user2.com', password: 'password', password_confirmation: 'password')
     controller.stub(:current_user).and_return(@user)
-    
+
     @user.slideshows << Slideshow.create(name: 'sstest')
-    
+
     @ss = @user.slideshows.first
 
     5.times do
       @ss.slides << Slide.create(title: "test", creator_id: @user.id)
     end
-    
+
   end
 
   describe '#index' do
@@ -32,7 +32,7 @@ describe SlidesController do
   	end
 
     it 'should return an instance of slide' do
-      
+
       expect(assigns(:slide)).to be_an_instance_of(Slide)
   	end
   end
@@ -77,11 +77,11 @@ describe SlidesController do
 
   describe '#update' do
    it 'should update slide' do
-      
+
       slide = @ss.slides.last
       patch 'update', id: slide, slide: { title: "test2" }
       expect(assigns(:slide).title).to eq("test2")
-      
+
     end
   end
 
@@ -92,18 +92,18 @@ describe SlidesController do
     end
 
     it "should delete a slide" do
-      
+
       expect {
         delete :destroy, id: @slide
         }.to change(Slide, :count).by(-1)
-      
+
     end
-    
+
     it "redirects to slideshows#show" do
-      
+
       delete :destroy, id: @slide
       response.should redirect_to slideshow_path(@ss)
-    
+
     end
 
   end

@@ -4,11 +4,11 @@ describe SlideshowsController do
 
   before do
 
-    @user = User.create(email: "user1@user.com", password: "password", password_confirmation: "password")
+    @user = User.create!(email: "user1@user.com", password: "password", password_confirmation: "password")
     controller.stub(:current_user).and_return(@user)
 
     10.times do
-      Slideshow.create(name: "test",user_id: @user.id)
+      Slideshow.create!(name: "test",user_id: @user.id)
     end
 
   end
@@ -50,7 +50,7 @@ describe SlideshowsController do
   describe '#create' do
 
     it "should allow to be past in a title" do
-      slideshow = Slideshow.create(name: "This is a title")
+      slideshow = Slideshow.create!(name: "This is a title", user_id: @user.id)
       expect(slideshow.name).to eq("This is a title")
     end
 
@@ -59,7 +59,7 @@ describe SlideshowsController do
   describe '#show' do
 
     before do
-      @slideshow = Slideshow.create(name: "test",user_id: 1234999)
+      @slideshow = Slideshow.create!(name: "test",user_id: 1234999)
       get 'show', id: @slideshow.id
     end
 
@@ -83,13 +83,13 @@ describe SlideshowsController do
     end
 
     it 'should thorow error if trying to edit not owned and not shared slideshow' do
-      @slideshow = Slideshow.create(name: "test",user_id: 1234999)
+      @slideshow = Slideshow.create!(name: "test",user_id: 1234999)
       get 'show', id: @slideshow.id
       flash.now[:error].should =~ /denied/i
     end
 
     it 'should allow to edit a shared but not owned slideshow' do
-      @slideshow = Slideshow.create(name: "test",user_id: 1234999, shared: true)
+      @slideshow = Slideshow.create!(name: "test",user_id: 1234999, shared: true)
       get 'show', id: @slideshow.id
       expect(assigns(:slideshow)).to be_an_instance_of(Slideshow)
     end
@@ -105,13 +105,13 @@ describe SlideshowsController do
     end
 
     it 'throw error if shared is false and posting to not owned slideshow' do
-      @slideshow = Slideshow.create(name: "test",user_id: 1234999)
+      @slideshow = Slideshow.create!(name: "test",user_id: 1234999)
       patch 'update', id: @slideshow, slideshow: {name: "Hello! testing"}
       flash.now[:error].should =~ /denied/i
     end
 
      it 'allow update of shared slideshow when not owner' do
-      @slideshow = Slideshow.create(name: "test",user_id: 1234999, shared: true)
+      @slideshow = Slideshow.create!(name: "test",user_id: 1234999, shared: true)
       patch 'update', id: @slideshow, slideshow: {name: "Hello! testing shared"}
       expect(assigns(:slideshow).name).to eq("Hello! testing shared")
     end
