@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
+      flash[:notice] = "User account has been created"
       redirect_to user_path(current_user)
     else
       @errors = user.errors
@@ -22,10 +23,10 @@ class UsersController < ApplicationController
     if current_user.id == params[:id].to_i
       current_user.destroy
       session.clear
-      flash[:notice] = "Your user account has been deleted."
+      flash[:notice] = "Your user account has been deleted"
       redirect_to root_url
     else
-      flash[:notice] = "You can only delete your own account."
+      flash[:notice] = "You can only delete your own account"
       redirect_to user_path(current_user)
     end
   end
@@ -37,11 +38,11 @@ class UsersController < ApplicationController
   def update
     if current_user.id == params[:id].to_i
       current_user.update_attributes!(email: user_update[:email])
-      flash[:notice] = "Your email has been updated."
+      flash[:notice] = "Your email has been updated"
       redirect_to user_path(current_user)
     else
       #need to revisit this but the check works
-      flash[:notice] = "You can only update your own account."
+      flash[:notice] = "You can only update your own account"
       session.clear
       redirect_to root_url
     end
@@ -52,7 +53,7 @@ class UsersController < ApplicationController
     if current_user.id == params[:id].to_i
       @shared_slideshows = Slideshow.where("shared = true AND user_id NOT IN ( #{current_user.id} )")
     else
-      flash[:notice] = "You can view your profile only."
+      flash[:notice] = "You can only view your profile"
       redirect_to user_path(current_user)
     end
 
