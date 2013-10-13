@@ -3,13 +3,13 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, :only => [:new, :create]
 
   def create
-    user = User.new(user_params)
-    if user.save
-      session[:user_id] = user.id
-      flash[:notice] = "User account has been created"
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      flash[:notice] = "Your account has been created"
       redirect_to user_path(current_user)
     else
-      @errors = user.errors
+      @errors = @user.errors
       render :new
     end
   end
