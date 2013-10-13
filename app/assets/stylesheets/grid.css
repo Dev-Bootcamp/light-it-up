@@ -1,3 +1,7 @@
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
 .grid-container {
   width: 1280px;
   margin: 0 auto;
@@ -55,11 +59,19 @@
 }
 
 .header-large {
-  background-color: rgb(61,61,61);
-  height: 40px;
+  background-color: #0A4167;
+  height: 30px;
   padding: 10px;
   margin: -40px -20px 0 -20px;
   color: white;
+  box-shadow: 0 6px 10px -6px black;
+
+}
+
+.header-large p {
+  font-size: 1.5em;
+  font-family: "Helvetica Neue";
+  font-weight: 200;
 }
 
 .right {
@@ -80,10 +92,17 @@
 
 .menu {
   background-color: #D0DBE4;
-  border: 2px solid #0E75BE;
+  border: 2px solid #0A4167;
 }
 
 .menu a {
-  font-size: 1.4em;
+  font-size: 1.2em;
+  display: block;
+  color: #0A4167;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
 
+a:hover {
+  color: #BD1008;
 }
