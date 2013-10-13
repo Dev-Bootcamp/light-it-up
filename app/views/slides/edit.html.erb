@@ -1,17 +1,21 @@
 <div class="main">
+  <div class="sidebar">
+    <div class="slide-settings float-inline">
+    <div class="div-header">Slide settings</div>
+      <h1><%= @slide.slideshow.name %></h1>
+      <h3><%= @slide.title %> </h3>
+      <div id="colorpicker"></div>
+    </div>
 
-  <div class="slide-settings">
-    <h1><%= @slide.slideshow.name %></h1>
-    <h3><%= @slide.title %> </h3>
-<!--     <form><input type="text" id="color" name="color" value="#123456" /></form>
- -->    <div id="colorpicker"></div>
 
-    <h3>Add a element</h3>
-    <ul>
-    <% @element_types.each do |type| %>
-    <li> <%= link_to "Add " + type.name, new_element_path(type_id: type.id), class: "add-element" %>  </li>
-    <% end %>
-    </ul>
+    <div class="slide-settings float-inline">
+      <h3>Add a element</h3>
+      <ul>
+      <% @element_types.each do |type| %>
+      <li> <%= link_to "Add " + type.name, new_element_path(type_id: type.id), class: "add-element" %>  </li>
+      <% end %>
+      </ul>
+    </div>
   </div>
 
   <div class="slide" style="width: <%= @slide.slideshow.px_width %>px; height: <%= @slide.slideshow.px_height %>px">
