@@ -6,7 +6,7 @@
 <div class="slides">
 <h4>Slides</h4>
   <% @slideshow.slides.each do |slide| %>
-    <%= link_to slide.title , slide_path(slide) %>
+    <%= link_to slide.title , edit_slide_path(slide) %>
 
   <% end %>
 </div>
