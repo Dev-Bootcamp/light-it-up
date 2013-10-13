@@ -3,6 +3,8 @@
   <div class="slide-settings">
     <h1><%= @slide.slideshow.name %></h1>
     <h3><%= @slide.title %> </h3>
+<!--     <form><input type="text" id="color" name="color" value="#123456" /></form>
+ -->    <div id="colorpicker"></div>
 
     <h3>Add a element</h3>
     <ul>
@@ -16,7 +18,7 @@
 
     <% @slide.elements.each do |element| %>
       <div class="slide-object draggable editable-area ui-draggable ui-resizable" id="<%= element.id %>" style="position: absolute; top: <%= element.top %>; left: <%= element.left %>; width: <%= element.width %> ; height: <%= element.heigth %>;">
-      <div class="editable" data-edit-event="dblclick.textEditor"><%= element.content %></div>
+      <div class="editable" data-edit-event="dblclick.textEditor"><%= element.content.html_safe %></div>
       </div>
     <% end %>
 
