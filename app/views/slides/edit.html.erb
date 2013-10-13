@@ -17,7 +17,7 @@
       <div id="colorpicker"></div>
     </div>
     <div class="hidden-div" id="edit-slide-add-element">
-      <h3>Choose elemtn</h3>
+      <h3>Choose element</h3>
       <ul>
       <% @element_types.each do |type| %>
       <li> <%= link_to "Add " + type.name, new_element_path(type_id: type.id), class: "add-element" %>  </li>
