@@ -9,11 +9,17 @@
 <body>
 
 <%= render 'layouts/nav' %>
-<% if flash[:notice] %>
+<% if flash[:notice]%>
   <div id='nav-error' class='nav-error'>
  	  <%= flash[:notice] %>
   </div>
 <% end %>
+<% if @errors%>
+  <div id='nav-error' class='nav-error'>
+    <%= @errors.full_messages.first %>
+  </div>
+<% end %>
+
 <%= yield %>
 
 </body>
