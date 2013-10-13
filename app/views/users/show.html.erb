@@ -2,18 +2,15 @@
 
 <% unless current_user.slideshows == nil %>
 <h3>Your slideshows</h3>
-<% @shared_or_not = current_user.slideshows %> 
+<% @shared_or_not = current_user.slideshows %>
 <%= render 'table' %>
 <% end %>
 
 <% unless @shared_slideshows == nil %>
 <h3>Shared slideshows</h3>
-<% @shared_or_not = @shared_slideshows %> 
+<% @shared_or_not = @shared_slideshows %>
 <%= render 'table' %>
 <% end %>
-
-
-<%= link_to 'Homepage', root_path %>
 
 <%= link_to 'Create new slideshow', new_slideshow_path %>
 
