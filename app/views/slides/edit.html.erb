@@ -1,15 +1,23 @@
-<div class="main">
-  <div class="settings">
-    <div class="slide-settings float-inline">
-    <div class="div-header">Slide settings</div>
-      <h1><%= @slide.slideshow.name %></h1>
-      <h3><%= @slide.title %> </h3>
-      <div id="colorpicker"></div>
+<div class="edit-slide-page">
+  <div class="slide-settings">
+    <div class="inline">
+      <%= @slide.slideshow.name %>
+    </div>
+    <div class="inline">
+    slide 1 of 3
+    </div>
+    <div class="inline">
+      <a href="#edit-slide-color-picker" class="button">Change background color</a>
+    </div>
+    <div class="inline">
+      <a href="#edit-slide-add-element" class="button">Add element</a>
     </div>
 
-
-    <div class="slide-settings float-inline">
-      <h3>Add a element</h3>
+    <div class="hidden-div" id="edit-slide-color-picker">
+      <div id="colorpicker"></div>
+    </div>
+    <div class="hidden-div" id="edit-slide-add-element">
+      <h3>Choose elemtn</h3>
       <ul>
       <% @element_types.each do |type| %>
       <li> <%= link_to "Add " + type.name, new_element_path(type_id: type.id), class: "add-element" %>  </li>
@@ -25,7 +33,7 @@
       <div class="editable" data-edit-event="dblclick.textEditor"><%= element.content.html_safe %></div>
       </div>
     <% end %>
-
   </div>
 
 </div>
+

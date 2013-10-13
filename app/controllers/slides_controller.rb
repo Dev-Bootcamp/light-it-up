@@ -6,13 +6,11 @@ class SlidesController < ApplicationController
 
   def create
     @slide = Slide.new(create_params)
-    # @slide.slideshow_id = current_slideshow
     @slide.creator = current_user
     if @slide.save
       current_slideshow.slides << @slide
       redirect_to slide_path(@slide)
     else
-      # puts "error...this did not work."
       render :new
     end
   end
