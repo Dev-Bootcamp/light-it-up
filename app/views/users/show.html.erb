@@ -1,12 +1,24 @@
 <div class="grid-100 top-50 shadow">
   <div class="header-large">
-    <h3><%= current_user.email.capitalize %> Your Page</h3>
+    <h1>Profile</h1>
   </div>
 
-  
-<div class="grid-20 menu right top">
+  <div class="grid-70 top">
 
-<%= link_to '<button type="button">Home</button>'.html_safe, root_path %>
+  <% unless current_user.slideshows == nil %>
+  <h2>Your slideshows</h2>
+  <% @shared_or_not = current_user.slideshows %>
+  <%= render 'table' %>
+  <% end %>
+
+  <% unless @shared_slideshows == nil %>
+  <h2>Shared slideshows</h2>
+  <% @shared_or_not = @shared_slideshows %>
+  <%= render 'table' %>
+  <% end %>
+  </div>
+
+<div class="grid-20 menu right top">
 
 <%= link_to '<button type="button">Create Slideshow</button>'.html_safe, new_slideshow_path %>
 
@@ -16,21 +28,7 @@
  <%= link_to '<button type="button">Delete Account</button>'.html_safe, user_path, method: :delete, data: { confirm: 'Are you sure you want delete your account?' }, :class => 'button-delete' %>
 </div>
 
-<div class="grid-70">
 
-<% unless current_user.slideshows == nil %>
-<h3>Your slideshows</h3>
-<% @shared_or_not = current_user.slideshows %> 
-<%= render 'table' %>
-<% end %>
-
-<% unless @shared_slideshows == nil %>
-<h3>Shared slideshows</h3>
-<% @shared_or_not = @shared_slideshows %> 
-<%= render 'table' %>
-<% end %>
-
-</div>
 
 </div>
 
