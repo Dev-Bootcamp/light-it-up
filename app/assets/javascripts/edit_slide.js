@@ -80,8 +80,6 @@ function setup(){
     $(id).toggle();
   })
 
-
-
   if ($('#colorpicker').is('*')) {
     $('#colorpicker').farbtastic('.slide');
   };
