@@ -50,17 +50,22 @@ element.prototype.generate_html = function(){
 function setup(){
 
   draggable();
-  editable();
+
+  if ($('.editable').is('*')) {
+    editable();
+  };
 
   $('a.add-element').on('click',function(e){
     e.preventDefault();
     url = $(this).attr('href');
+    console.log(url)
     $.get(url,function(response){
+      console.log(response);
       var new_element = new element(response);
-      console.log(new_element.generate_html())
+      console.log(new_element.generate_html());
       $('.slide').append(new_element.generate_html());
       draggable();
-      // editable();
+      editable();
     }, 'json');
   })
 
