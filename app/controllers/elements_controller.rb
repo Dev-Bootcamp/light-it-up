@@ -6,6 +6,7 @@ class ElementsController < ApplicationController
 
   def create
     @element = Element.new(create_params)
+    @element.save!
   end
 
   def new

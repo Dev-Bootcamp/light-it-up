@@ -48,12 +48,24 @@ describe SlideshowsController do
   end
 
   describe '#create' do
+    before(:each) do
+      @sl = {
+        :user_id => 1,
+        :name => "name",
+        :shared => true,
+        :px_width => 1024,
+        :px_height => 768
+      }
+    end
 
     it "should allow to be past in a title" do
       slideshow = Slideshow.create!(name: "This is a title", user_id: @user.id)
       expect(slideshow.name).to eq("This is a title")
     end
-
+    it "finds the correct slideshow" do
+      post :create, :slideshow => @sl
+      assigns(:slideshow).should be_an_instance_of(Slideshow)
+    end
   end
 
   describe '#show' do
