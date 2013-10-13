@@ -49,7 +49,7 @@ describe ElementsController do
     before do
 
       controller.stub(:current_user).and_return(@user)
-      @element = Element.create!(content: 'Hello, world!', slide_id: 1, element_type_id: 1, size: 0, coordinates: 'xxx')
+      @element = Element.create!(content: 'Hello, world!', slide_id: 1, element_type_id: 1)
 
     end
 
@@ -57,7 +57,7 @@ describe ElementsController do
       get :show, :id => @element.id
 
       response.should render_template(:show)
-   end
+    end
 
   end
 
@@ -73,6 +73,19 @@ describe ElementsController do
       response.should render_template(:edit)
     end
 
+  end
+
+  describe '#update' do
+
+   it 'should update content' do
+      patch :update, id: @element.id, element: {:content => "test content"}
+
+      @element.reload.content.should eq "test content"
+    end
+
+  end
+
+  describe '#destroy' do
   end
 
 end
