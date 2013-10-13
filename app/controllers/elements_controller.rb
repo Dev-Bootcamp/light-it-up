@@ -9,7 +9,13 @@ class ElementsController < ApplicationController
   end
 
   def new
-    @element = Element.new
+    @element = Element.new(element_type_id: params[:type_id], slide_id: session[:edit_slide_id], content: "edit me")
+    if request.xhr?
+      @element.save!
+      render json: {element: @element, type: @element.element_type}
+    else
+      redirect_to slide_path(@slide)
+    end
   end
 
   def show
