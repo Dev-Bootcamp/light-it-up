@@ -1,0 +1,2 @@
+LightItUp::Application.config.secret_key_base = '4736d0a22173e7fbe453d1638bfe51d403cea5214e92ca13d4511474f22620be53c1e23297700baf5d44e9a112d65c6269f3ee56cc3aa0687a2291ee04d35c26'
+
