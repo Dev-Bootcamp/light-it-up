@@ -19,8 +19,8 @@
       </div>
       <div class="form">
         <%= form_tag login_path do %>
-          <%= email_field_tag :email %>
-          <%= password_field_tag :password %>
+          <%= email_field_tag :email, nil, :placeholder => 'your@email.com' %>
+          <%= password_field_tag :password, nil, :placeholder => 'password min 8'  %>
           <%= submit_tag "Log in", :class => "button" %>
         <% end %>
       </div>
@@ -28,8 +28,3 @@
   </div>
 
 </div>
-<% if @error == "login" %>
-  <div class="nav-error">
-    Wrong username or password.
-  </div>
-<% end %>
