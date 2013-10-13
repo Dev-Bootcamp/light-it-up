@@ -1,18 +1,18 @@
 <div class="grid-100 top-50 shadow">
   <div class="header-large">
-    <p>Your profile</p>
+    <h1>Profile</h1>
   </div>
 
   <div class="grid-70 top">
 
   <% unless current_user.slideshows == nil %>
-  <h3>Your slideshows</h3>
+  <h2>Your slideshows</h2>
   <% @shared_or_not = current_user.slideshows %>
   <%= render 'table' %>
   <% end %>
 
   <% unless @shared_slideshows == nil %>
-  <h3>Shared slideshows</h3>
+  <h2>Shared slideshows</h2>
   <% @shared_or_not = @shared_slideshows %>
   <%= render 'table' %>
   <% end %>
