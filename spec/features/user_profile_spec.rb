@@ -14,7 +14,6 @@ describe "User Profile" do
 
   describe "Profile functionality" do
     before(:each) do
-      # visit user_path(User.find_by_email("ex@fake.com"))
       @user = User.find_by_email("ex@fake.com")
       @your_slideshow = Slideshow.create!(name: "your slideshow",user_id: @user.id, shared: false)
       visit user_path(@user)

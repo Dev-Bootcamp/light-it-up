@@ -21,6 +21,14 @@ module UserHelper
     visit edit_user_path(@user)
     click_link 'Log out'
   end
+
+  def create_slideshow
+    visit new_slideshow_path
+    fill_in 'Name', with: 'fakeslideshow name'
+    click_button 'Create'
+  end
+
+
 end
 
 
