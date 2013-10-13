@@ -11,6 +11,7 @@ describe "Create new slideshow page" do
     visit new_slideshow_path
     fill_in 'Name', with: 'fakeslideshow name'
     click_button 'Create'
+    page.should have_content 'Add new slide'
 
   end
 
@@ -19,6 +20,7 @@ describe "Create new slideshow page" do
     fill_in 'Name', with: 'fakeslideshow name'
     check 'Shared'
     click_button 'Create'
+    page.should have_content 'Add new slide'
   end
 
 
