@@ -54,3 +54,36 @@
   display: inline-block;
 }
 
+.header-large {
+  background-color: rgb(61,61,61);
+  height: 40px;
+  padding: 10px;
+  margin: -40px -20px 0 -20px;
+  color: white;
+}
+
+.right {
+  float: right;
+}
+
+.top {
+  margin-top: 20px;
+}
+
+.top-50 {
+  margin-top: 50px;
+}
+
+.shadow {
+  box-shadow: 0 0 20px black;
+}
+
+.menu {
+  background-color: #D0DBE4;
+  border: 2px solid #0E75BE;
+}
+
+.menu a {
+  font-size: 1.4em;
+
+}
