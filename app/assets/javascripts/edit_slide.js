@@ -69,8 +69,9 @@ function setup(){
     }, 'json');
   })
 
-
-  $('#colorpicker').farbtastic('.slide');
+  if ($('#colorpicker').is('*')) {
+    $('#colorpicker').farbtastic('.slide');
+  };
 
 };
 
