@@ -9,7 +9,7 @@ class SlidesController < ApplicationController
     @slide.creator = current_user
     if @slide.save
       current_slideshow.slides << @slide
-      redirect_to slide_path(@slide)
+      redirect_to edit_slide_path(@slide)
     else
       render :new
     end

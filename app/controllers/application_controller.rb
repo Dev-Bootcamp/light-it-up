@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
       false
     end
   end
-  
+
   def current_slideshow
     current_slideshow = Slideshow.find(session[:slideshow_id]) if session[:slideshow_id]
   end

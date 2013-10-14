@@ -70,7 +70,7 @@ function setup(){
     }, 'json');
   })
 
-  $('.slide-settings').on('click', 'a', function(e){
+  $('.slide-settings').on('click', 'a.js', function(e){
     e.preventDefault();
     console.log("hey")
     id = $(this).attr('href');
@@ -89,11 +89,12 @@ function setup(){
   $('#edit-slide-color-picker').on('mouseup', function(e){
     e.preventDefault();
     var bgColor = $('.slide').css('background-color');
+    var color = $('.slide').css('color');
     var url = window.location.href;
     var slideId = url.substring(29).match(/(\d+)\/edit/);
     var id = slideId[1];
     console.log(id);
-    $.post('/slide-bg/' + id, { slide: { id: id, background_color: bgColor } }, function(response){
+    $.post('/slide-bg/' + id, { slide: { id: id, background_color: bgColor, color: color } }, function(response){
       console.log(response);
     });
   });

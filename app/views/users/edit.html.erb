@@ -1,12 +1,16 @@
-<h1>Edit Account info.</h1>
+<div class="alt-box">
+
+<h1>edit your profile</h1>
 
 <%= form_for :user, url: user_path(current_user), method: :patch do |f| %>
   <p>
-    <%= f.label :email %> <br \>
     <%= f.email_field :email, { value: current_user.email} %>
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= f.submit "update" %>
   </p>
 <% end %>
+
+</div>
+

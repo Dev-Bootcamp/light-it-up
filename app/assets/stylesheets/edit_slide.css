@@ -13,7 +13,6 @@
 .slide {
   background-color: #ddd;
   float: right;
-  box-shadow: 0 0 10px #bbb;
   padding: 20px;
   position: relative;
 /*  border: 3px solid #aaa;*/
@@ -65,9 +64,9 @@
 .slide-settings {
   color: white;
   padding: 10px;
-  -webkit-box-shadow: 0 8px 15px -2px #555;
+/*  -webkit-box-shadow: 0 8px 15px -2px #555;
   -moz-box-shadow: 0 8px 15px -2px #555;
-  box-shadow: 0 8px 15px -2px #000;
+  box-shadow: 0 8px 15px -2px #000;*/
   background-image: -webkit-gradient(linear, 0 100%, 0 0, from(rgb(28,28,28)), color-stop(0.07, rgb(61,61,61)), to(rgb(107,104,107)));
   background-image: -webkit-linear-gradient(bottom, rgb(28,28,28) 0%, rgb(61,61,61) 7%, rgb(107,104,107) 100%);
   background-image: -moz-linear-gradient(bottom, rgb(28,28,28) 0%, rgb(61,61,61) 7%, rgb(107,104,107) 100%);
@@ -75,10 +74,10 @@
   background-image: linear-gradient(bottom, rgb(28,28,28) 0%, rgb(61,61,61) 7%, rgb(107,104,107) 100%);
 }
 
-.edit-slide-page {
+/*.edit-slide-page {
   margin-top: 20px;
   box-shadow: 0 0 40px #999;
-}
+}*/
 
 a.button {
   color: white;
@@ -107,4 +106,20 @@ a.button:hover {
 .hidden-div a {
   color: white;
   text-decoration: none;
+}
+
+.mini-slide {
+  width: 300px;
+  height: 170px;
+  float: left;
+  margin: 0 5px 5px 0px;
+}
+
+.mini-slide p{
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  margin-top: 70px;
+  font-size: 1.5em;
+  text-shadow: 0 1px 5px black;
 }

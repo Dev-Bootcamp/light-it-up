@@ -17,16 +17,14 @@
 <% end %>
 
 <!-- user model errors -->
-<% if @errors%> 
+<% if @errors%>
   <div id='nav-error' class='nav-error'>
     <%= @errors.full_messages.first %>
   </div>
 <% end %>
 <!-- end user model errors -->
 
-<div class="grid-container">
 <%= yield %>
-</div>
 
 </body>
 </html>

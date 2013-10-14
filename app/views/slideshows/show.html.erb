@@ -1,20 +1,23 @@
-<div class="grid-100 top-50 shadow">
-<h1><%= @slideshow.name %> </h1>
+<div class="grid-container top shadow">
+  <div class="grid-100">
+   <div class="grid-80 top">
+      <h1><%= @slideshow.name %> </h1>
+      <div class="slides">
+      <h4>Slides</h4>
+        <% @slideshow.slides.each do |slide| %>
+          <%= link_to  edit_slide_path(slide) do %>
+          <div class="mini-slide" style="background-color: <%= slide.background_color %>">
+            <p><%= slide.title %></p>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
-<%= link_to 'Add new slide', new_slide_path %>
+     <div class="grid-20 menu right top">
+    <%= link_to '<button type="button">Add new slide</button>'.html_safe, new_slide_path %>
+    <%= link_to '<button type="button">Cast</button>'.html_safe, cast_path(@slideshow), method: "post" %>
+    </div>
 
-
-<div class="slides">
-<h4>Slides</h4>
-  <% @slideshow.slides.each do |slide| %>
-    <%= link_to slide.title , edit_slide_path(slide) %>
-
-  <% end %>
-</div>
-
-<div class="slidshow" style="width: <%= @slideshow.px_width %>px; height: <%= @slideshow.px_height %>px">
-</div>
-
-
-
+  </div>
 </div>
