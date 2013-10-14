@@ -1,4 +1,4 @@
-<div class="edit-slide-page">
+<div class="edit-slide-page top" style="width: <%= @slide.slideshow.px_width %>px">
   <div class="slide-settings">
     <div class="inline">
       <%= @slide.slideshow.name %>
@@ -7,15 +7,20 @@
     slide 1 of 3
     </div>
     <div class="inline">
-      <a href="#edit-slide-color-picker" class="button">Change background color</a>
+      <a href="#edit-slide-color-picker" class="button js">Change background color</a>
     </div>
     <div class="inline">
-      <a href="#edit-slide-add-element" class="button">Add element</a>
+      <a href="#edit-slide-add-element" class="button js">Add element</a>
     </div>
 
     <div class="hidden-div" id="edit-slide-color-picker">
       <div id="colorpicker"></div>
     </div>
+
+    <div class="inline">
+      <%= link_to "Back", slideshow_path(@slide.slideshow), class: "button" %>
+    </div>
+
     <div class="hidden-div" id="edit-slide-add-element">
       <h3>Choose element</h3>
       <ul>
@@ -25,12 +30,9 @@
       </ul>
     </div>
 
-    <div class="inline">
-      <a href="#" onclick="history.go(-1)" class="button">Go Back</a>
-    </div>
   </div>
 
-  <div class="slide" style="width: <%= @slide.slideshow.px_width %>px; height: <%= @slide.slideshow.px_height %>px">
+  <div class="slide" style="width: <%= @slide.slideshow.px_width %>px; height: <%= @slide.slideshow.px_height %>px; background-color: <%= @slide.background_color %>">
 
     <% @slide.elements.each do |element| %>
       <div class="slide-object draggable editable-area ui-draggable ui-resizable" id="<%= element.id %>" style="position: absolute; top: <%= element.top %>; left: <%= element.left %>; width: <%= element.width %> ; height: <%= element.heigth %>;">
@@ -40,4 +42,3 @@
   </div>
 
 </div>
-

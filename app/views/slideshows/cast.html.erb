@@ -10,12 +10,12 @@
 <ul id="slide_list">
 <% @slideshow.slides.each_with_index do |slide,index| %>
   <% if index == 0 %>
-  <div id="slide<%= index + 1 %>" class="active" style="width: <%= @slideshow.px_width %>px; height: <%= @slideshow.px_height %>px">
+  <div id="slide<%= index + 1 %>" class="active" style="width: <%= @slideshow.px_width %>px; height: <%= @slideshow.px_height %>px; background-color:<%= slide.background_color %>">
   <% else %>
-  <div id="slide<%= index + 1 %>" class="hidden" style="width: <%= @slideshow.px_width %>px; height: <%= @slideshow.px_height %>px">
+  <div id="slide<%= index + 1 %>" class="hidden" style="width: <%= @slideshow.px_width %>px; height: <%= @slideshow.px_height %>px; background-color:<%= slide.background_color %>">
   <% end %>
     <% slide.elements.each do |element| %>
-      <div class="slide-object"   id="<%= element.id %>" style="position: absolute; top: <%= element.top %>   ; left: <%= element.left %>; width: <%= element.width %> ; height: <%= element.heigth %>;">
+      <div class="slide-object"   id="<%= element.id %>" style="position: absolute; top: <%= element.top %>   ; left: <%= element.left %>; width: <%= element.width %> ; height: <%= element.heigth %>">
         <div class="editable" data-edit-event="dblclick.textEditor"><%= element.content.html_safe %></div>
         </div>
     <% end %>

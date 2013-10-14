@@ -1,21 +1,18 @@
-<h3> Create new user <h3>
+<div class="alt-box">
+  <h1 class="alt"> Light it up! </h1>
 
-<%= form_for :user, url: users_path do |f| %>
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </p>
-
-
-  <p>
-    <%= f.submit %>
-  </p>
-
-<% end %>
+  <%= form_for :user, url: users_path do |f| %>
+    <p>
+      <%= f.email_field :email, placeholder: "email" %>
+    </p>
+    <p>
+      <%= f.password_field :password, placeholder: "password" %>
+    </p>
+    <p>
+      <%= f.password_field :password_confirmation, placeholder: "password confirmation" %>
+    </p>
+    <p>
+      <%= f.submit "sign up" %>
+    </p>
+  <% end %>
+</div>

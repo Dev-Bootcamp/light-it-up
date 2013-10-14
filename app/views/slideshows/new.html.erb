@@ -1,10 +1,9 @@
-<div class="grid-100 top-50 shadow">
+<div class="alt-box">
 <h1>Create new slideshow</h1>
 
 <%= form_for @slideshow do |f| %>
 
-  <%= f.label :name %><br />
-  <%= f.text_field :name %>
+  <%= f.text_field :name, placeholder: "title" %>
   <%= f.label :shared %>
   <%= f.check_box :shared %>
 
