@@ -13,7 +13,11 @@ $(document).ready(function() {
     $active.prev().removeClass('active');
     $active.prev().addClass('hidden');
     $active.prev().appendTo('#slide_list');
-    }, 3000
+    }, 5000
   );
+
+  $(document).keyup(function(e) { 
+    if (e.keyCode == 27) { window.history.go(-1); }
+  });
  
 });
