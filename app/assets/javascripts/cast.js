@@ -1,9 +1,11 @@
 $(document).ready(function() {
-  var $active = $('.active');
-  $('.hidden').hide();
+  
+  // for (i = 0; i < 100; i++) {
+    
+    var $active = $('.active');
+    $('.hidden').hide();
  
-  $(document).keyup(function(e) {
-    if (e.keyCode == 37) {
+    setTimeout( function() {
       console.log('keyup');
       $active = $('.active').next();
       $active.prev().fadeOut();
@@ -13,7 +15,9 @@ $(document).ready(function() {
       $active.prev().removeClass('active');
       $active.prev().addClass('hidden');
       $active.prev().appendTo('#slide_list');
-    }
-  });
+      }, 3000
+    );
+
+  // };
  
 });
