@@ -17,5 +17,6 @@ LightItUp::Application.routes.draw do
   post 'cast' => 'slideshows#cast'
 
   post 'elements/ajax/:id' => 'ajax#element_update'
+  post 'slide-bg/:id' => 'ajax#slide_update'
 
 end

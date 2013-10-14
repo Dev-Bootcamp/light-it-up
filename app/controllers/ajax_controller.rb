@@ -11,6 +11,13 @@ class AjaxController < ApplicationController
     end
   end
 
+  def slide_update
+    if request.xhr?
+      @slide = Slide.find(params[:id])
+      @slide.update(params[:background_color])
+    end 
+  end
+
 
   private
 

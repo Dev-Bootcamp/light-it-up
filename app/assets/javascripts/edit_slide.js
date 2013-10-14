@@ -43,14 +43,6 @@ function save(slideElement){
   })
 };
 
-function saveSlide(slide) {
-  var backgroundColor = $(this).css('background-color');
-  var id = $(slide).attr('id');
-  var url = '/slides/' + id;
-  $.post(url, {slide: {background_color: backgroundColor}}, function(response) {
-
-  })
-};
 
 element.prototype.generate_html = function(){
   return "<div class='slide-object draggable editable-area' id='" + this.element_id + "'><div class='editable'>" + "edit this" + "</div></div>"
@@ -94,9 +86,16 @@ function setup(){
     });
   };
 
-  $('#edit-slide-color-picker').on('mouseup', function(){
-    bgColor = $('.slide').css('background-color');
-    console.log(bgColor);
+  $('#edit-slide-color-picker').on('mouseup', function(e){
+    e.preventDefault();
+    var bgColor = $('.slide').css('background-color');
+    var url = window.location.href;
+    var slideId = url.substring(29).match(/(\d+)\/edit/);
+    var id = slideId[1];
+    console.log(id);
+    $.post('/slide-bg/' + id, { slide: { id: id, background_color: bgColor } }, function(response){
+      console.log(response);
+    });
   });
 
 };
