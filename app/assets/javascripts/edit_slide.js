@@ -28,6 +28,7 @@ function editable(){
     }});
 };
 
+
 function save(slideElement){
   var width = $(slideElement).css('width');
   var heigth = $(slideElement).css('height');
@@ -41,6 +42,7 @@ function save(slideElement){
     console.log(response)
   })
 };
+
 
 element.prototype.generate_html = function(){
   return "<div class='slide-object draggable editable-area' id='" + this.element_id + "'><div class='editable'>" + "edit this" + "</div></div>"
@@ -80,14 +82,22 @@ function setup(){
   })
 
   if ($('#colorpicker').is('*')) {
-    $('#colorpicker').farbtastic('.slide',function(){
-      console.log("test")
+    $('#colorpicker').farbtastic('.slide', function(){
     });
   };
 
-  $('.slide').on('change',function(){
-    console.log(this)
+  $('#edit-slide-color-picker').on('mouseup', function(e){
+    e.preventDefault();
+    var bgColor = $('.slide').css('background-color');
+    var url = window.location.href;
+    var slideId = url.substring(29).match(/(\d+)\/edit/);
+    var id = slideId[1];
+    console.log(id);
+    $.post('/slide-bg/' + id, { slide: { id: id, background_color: bgColor } }, function(response){
+      console.log(response);
+    });
   });
+
 };
 
 $(document).ready(setup);
